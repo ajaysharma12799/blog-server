@@ -34,7 +34,12 @@ app.use(express.json());
 app.get("/", (request, response) => {
   response.status(200).json({
     status: "success",
-    message: "Server is up and running",
+    message: "🚀 Server is healthy and running smoothly",
+    service: "API Gateway",
+    environment: process.env.NODE_ENV || "development",
+    timestamp: new Date().toISOString(),
+    uptime: process.uptime(), // seconds
+    version: "v1.0.0",
   });
 });
 
